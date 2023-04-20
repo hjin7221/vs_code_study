@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>video</title>
+    <style>
+        html, body{ margin: 0 auto;  padding: 0; height: 100%; overflow: hidden;}
+        video { top: 0px; left: 0px; min-width: 100%; max-width: 100%; z-index: -1; overflow: hidden;}
+        .title-cls{
+            top: 100%; width: 100%;
+        }
+        .title-cls p{
+            z-index: 1;
+            color: red;
+            font-size: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <video src="/week1/media/hawaii.mp4" autoplay muted loop></video>
+    <div class="title-cls">
+        <p>H A W A I I</p>
+    </div>
+</body>
+</html>
