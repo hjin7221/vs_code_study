@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<style>
+		
+	</style>
+<meta charset = "UTF-8">
+<title> 가위바위보 </title>
+<script>
+    function reGame (){
+		location.reload();
+	}
+	document.write("<h1>컴퓨터 가위, 바위, 보 맞추기</h1>");
+	let game = prompt("가위, 바위, 보 중 선택하세요?", "가위");
+	let com = Math.ceil( Math.random() * 3 );
+	//랜덤함수를 활용하여 가위바위보 게임을 만들어보세요 ^^ 
+	document.write("<img src=\"images/math_com_" + com + ".jpg\">"+ "com ");
+	document.write("VS");
+	let user = 0;
+	switch(game) {
+		case "가위" : user = 1; break;
+		case "바위" : user = 2; break;
+		case "보"   : user = 3; break;
+		default : user = 0;
+	}
+	document.write("<img src=\"images/math_user_" + user + ".jpg\">"+ "user </br>");
+	//(1) 사용자 입력 텍스트를 -> 숫자로
+	//(2) 각숫자의 이미지 출력
+	//(3) 이기는, 지는, 비기는 조건
+	
+	if(user == 1) {
+		if(com == 1) {
+			document.write("비겼습니다. 다시 도전해보세요.");
+		}else if(com == 2) {
+			document.write("졌습니다. 못하시네요.");
+		}else {
+			document.write("축하드립니다.");
+		}
+	}else if(user == 2){
+		if(com == 1) {
+			document.write("축하드립니다.");
+		}else if(com == 2) {
+			document.write("비겼습니다. 다시 도전해보세요.");
+		}else {
+			document.write("졌습니다. 못하시네요.");
+		}
+	}else if(user == 3){
+		if(com == 1) {
+			document.write("졌습니다. 못하시네요.");
+		}else if(com == 2) {
+			document.write("축하드립니다.");
+		}else {
+			document.write("비겼습니다. 다시 도전해보세요.");
+		}
+	}
+
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>
