@@ -7,8 +7,8 @@
     <title>ID</title>
 </head>
 <body>
-    <button onclick="fn_changeSize()">텍스트 크기변경 + </button>
-    <button onclick="fn_changeSize()">텍스트 크기변경 - </button>
+    <button onclick="fn_changeSize('+')">텍스트 크기변경 + </button>
+    <button onclick="fn_changeSize('-')">텍스트 크기변경 - </button>
     <p id="text1">이 텍스트의 크기를 변경하세요!!!</p>
     
     <button onclick="fn_visibility()">숨기기/보이기</button>
@@ -20,7 +20,7 @@
         let size = 20;
         function fn_changeSize(flag){
             let text = document.getElementById("text1");
-            if(flag == '+'){
+            if(flag == "+"){
                 size++;
             }else {
                 size--;
