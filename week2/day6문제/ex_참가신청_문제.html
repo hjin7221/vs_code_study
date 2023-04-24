@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fn_register(){
+            let obj = document.getElementById('nameList');
+            let cls = document.getElementsByClassName('myDiv');
+            let newDIV = document.createElement('div');
+            newDIV.innerHTML = document.getElementById('userName').value;
+            newDIV.setAttribute('class', 'myDiv');
+            let btn = document.createElement('button');
+            btn.setAttribute('class', 'del');
+            btn.innerHTML = 'X';
+            btn.onclick = function(){
+                let p = this.parentElement.parentElement;
+                let div = this.parentElement;
+                p.removeChild(div);
+            }
+            newDIV.appendChild(btn);
+            obj.appendChild(newDIV);
+            document.getElementById('userName').value = "";
+        }
+        function fn_enter(e){
+            if(e.keyCode == 13){
+                fn_register();
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/nameList.css">
+</head>
+
+<body>
+    <div id="container">
+        <h1>참가 신청서</h1>
+        <form action="" onsubmit="return false">
+            <input type="text" id="userName" placeholder="이름을 입력하세요" autocomplete="off" required onkeyup="fn_enter(event)">
+            <button type="button" onclick="fn_register()">신청</button>
+        </form>
+        <hr>
+        <div id="nameList"></div>
+        
+    </div>
+</body>
+
+</html>
