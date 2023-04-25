@@ -47,6 +47,7 @@
 			background:transparent;
 			float:right;
 			margin-right:10px;
+			display: inline;
 		}
 		.del:hover {
 			color:#222;

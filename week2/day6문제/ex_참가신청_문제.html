@@ -13,7 +13,7 @@
             let newDIV = document.createElement('div');
             newDIV.innerHTML = document.getElementById('userName').value;
             newDIV.setAttribute('class', 'myDiv');
-            let btn = document.createElement('button');
+            let btn = document.createElement('p');
             btn.setAttribute('class', 'del');
             btn.innerHTML = 'X';
             btn.onclick = function(){
@@ -42,7 +42,7 @@
             <button type="button" onclick="fn_register()">신청</button>
         </form>
         <hr>
-        <div id="nameList"></div>
+        <div id="nameList"><p></p></div>
         
     </div>
 </body>
