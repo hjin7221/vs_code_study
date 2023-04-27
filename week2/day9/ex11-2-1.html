@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid 그리기</title>
+    <style>
+        body{ background-color: aquamarine; margin: 0; left: 0;}
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="420px" height="420px"
+    style="background-color: white; margin: 20px;" onmousemove="fn_wheel(event)"></canvas>
+    <button onclick="fn_draw()">그려</button>
+    <script>
+        let w = 400;
+        let h = 400;
+        let p = 10;
+        let canvas = document.getElementById('myCanvas');
+        let context = canvas.getContext('2d');
+        function fn_draw(){
+            for(let i = 10; i<w+40; i+=40) {
+                context.moveTo(i, 10);
+                context.lineTo(i, 410);
+                context.strokeStyle = 'black';
+                context.stroke();
+
+                context.moveTo(10, i);
+                context.lineTo(410, i);
+                context.strokeStyle = 'black';
+                context.stroke();
+            }
+        }
+        function fn_wheel(e){
+            let div = document.getElementById('div_id');
+            let text = "";
+            text += "screen:(" + e.screenX + ", " + e.screenY + ")<br>";
+            text += "screen:(" + e.clientX + ", " + e.clientY + ")<br>";
+            text += "screen:(" + e.offsetX + ", " + e.offsetY + ")<br>";
+            text += "screen:(" + e.x + ", " + e.y + ")<br>";
+            div.innerHTML = text;
+        }
+        myCanvas.onclick = function(e) {
+            let a = 10;
+            let b = 50;
+            let c = 90;
+            let d = 130;
+            let f = 170;
+            let g = 210;
+            let h = 250;
+            let i = 290;
+            let j = 330;
+            let k = 370;
+            let pointX = e.offsetX;
+            let pointY = e.offsetY;
+
+            context.beginPath(); // 빈경로
+            context.fillStyle = 'violet';
+            if (pointX < b) {
+                pointX = a;
+            }else if(pointX < c) {
+                pointX = b;
+            }else if(pointX < d) {
+                pointX = c;
+            }else if(pointX < f) {
+                pointX = d;
+            }else if(pointX < g) {
+                pointX = f;
+            }else if(pointX < h) {
+                pointX = g;
+            }else if(pointX < i) {
+                pointX = h;
+            }else if(pointX < j) {
+                pointX = i;
+            }else if(pointX < k) {
+                pointX = j;
+            }else if(pointX > k) {
+                pointX = k;
+            }
+
+            if (pointY < b) {
+                pointY = a;
+            }else if(pointY < c) {
+                pointY = b;
+            }else if(pointY < d) {
+                pointY = c;
+            }else if(pointY < f) {
+                pointY = d;
+            }else if(pointY < g) {
+                pointY = f;
+            }else if(pointY < h) {
+                pointY = g;
+            }else if(pointY < i) {
+                pointY = h;
+            }else if(pointY < j) {
+                pointY = i;
+            }else if(pointY < k) {
+                pointY = j;
+            }else if(pointY > k) {
+                pointY = k;
+            }
+            context.rect(pointX, pointY, 40, 40);
+            context.fill();
+        }
+    </script>
+    <div id="div_id"></div>
+</body>
+</html>
