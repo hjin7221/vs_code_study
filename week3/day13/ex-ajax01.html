@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+    <!-- Asynchronouse javascript XML 비동기 자바스크립트 XML
+        초기 XML을 많이 사용하여서 XML    현재는 JSON으로 많이 사용
+        비동기 통신을 위한 대행 객체 필요
+        XMLHttpRequest (통신객체)    
+    -->
+    <script>
+        let v_ajax = new XMLHttpRequest();
+        function fn_get(){
+            v_ajax.open('GET' , 'https://api.upbit.com/v1/market/all', true );
+            v_ajax.send();
+        }
+        // 응답 이벤트
+        v_ajax.onreadystatechange = function() {
+            // readyState : 4 데이터를 받았다는 코드
+            // status     : 200 정상응답 코드
+            if(v_ajax.readyState == 4 && v_ajax.status == 200){
+                console.log(v_ajax);
+                console.log(v_ajax.responseText);
+                let upbit_code_list = JSON.parse(v_ajax.responseText);
+                console.log(upbit_code_list);
+                // table conit_list에 응답받은 데이터를 테이블로 출력하시오
+                // tr, td를 활용하여
+                // document.getElementById('coin_list').innerHTML = 
+                // "<tr><td>한글명</td><td>영문명</td><td>코드</td><tr>";
+                let str;
+                str = "<tr><td>한글명</td><td>영문명</td><td>코드</td><tr>";
+                for(let i in upbit_code_list){
+                    str +="<tr>"
+                    str +="<td>" + upbit_code_list[i].korean_name + "</td>";
+                    str +="<td>" + upbit_code_list[i].english_name + "</td>";
+                    str +="<td>" + upbit_code_list[i]['market'] + "</td>";
+                    str += "</tr>"
+                }
+                document.getElementById('coin_list').innerHTML = str;
+            }
+        }
+        function fn_click(e) {
+            let upbit_code_list = JSON.parse(v_ajax.responseText);
+            console.log(e.clientY);
+            let y = (parseInt(e.clientY /28))-2;
+            console.log(y); 
+            alert(upbit_code_list[y].market);
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="fn_get()">가져오기</button>
+    <div class="row">
+        <div id="left_table">
+            <table id="coin_list" onclick="fn_click(event)"></table>
+        </div>
+        <div id="right_table"></div>
+    </div>
+</body>
+</html>

@@ -6,17 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>팝업</title>
     <script>
-        let newWin = this;
-        function win_close(){
-            newWin.close();
+        function SetCookie(name, val, expireDate){
+            let cookieStr = name + "=" + escape(val) + ((expireDate == null) ? "" : ("; expires=" + expireDate.toUTCString()));
+            document.cookie = cookieStr;
         }
-        function fn_check(param){
-            let objs = document.getElementsByName(chb);
-                // checkbox, radio에 있는 속성값 선택되면 true
-                if(objs[i].checked){
-                    
-                }
+        function fn_check(){
+            let now = new Date();
+            if(document.getElementById('chb')[0].checked) {
+                now.setTime(now.getTime() + (1 * 60 * 1000));
+                SetCookie('pop', 'Y', now);
+                window.close();
+            } else{
+                now.setTime(now.getTime() + (365 * 24 * 60 * 60 * 1000));
+                    SetCookie('pop', 'N', now);
+                    window.close();
             }
+        }
     </script>
 </head>
 <body>
@@ -24,6 +29,6 @@
     <h4>공지내용 입니다......</h4>
     <hr>
     2분동안은 다시 안보기 <input type="checkbox" name="chb">
-    <button id="btn" onclick="win_close()">닫기</button>
+    <button id="btn" onclick="fn_check()">닫기</button>
 </body>
 </html>
