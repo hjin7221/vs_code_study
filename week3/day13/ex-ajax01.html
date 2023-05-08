@@ -32,7 +32,7 @@
                 let str;
                 str = "<tr><td>한글명</td><td>영문명</td><td>코드</td><tr>";
                 for(let i in upbit_code_list){
-                    str +="<tr>"
+                    str +="<tr>";
                     str +="<td>" + upbit_code_list[i].korean_name + "</td>";
                     str +="<td>" + upbit_code_list[i].english_name + "</td>";
                     str +="<td>" + upbit_code_list[i]['market'] + "</td>";
@@ -47,6 +47,9 @@
             let y = (parseInt(e.clientY /28))-2;
             console.log(y); 
             alert(upbit_code_list[y].market);
+        }
+        function fn_clin(code){
+            alert(code);
         }
     </script>
 </head>
