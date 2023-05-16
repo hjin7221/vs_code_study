@@ -1,5 +1,4 @@
 nav {
-  display: flex;
   align-items: center;
   width: 100%;
   position: fixed;
@@ -29,9 +28,9 @@ a {
   font-size: 16px;
   cursor: pointer;
   margin-right: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: nowrap; /* 줄 바꿈 방지 */
+  overflow: hidden; /* 내용 넘침 처리 */
+  text-overflow: ellipsis; /* 내용 넘침 시 ... 으로 표시 */
 }
 
 a:hover {

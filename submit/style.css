@@ -1,0 +1,28 @@
+html, body{margin: auto 0; padding: 0; height: 100%;}
+
+#menu { /* menu의 id를 가진 스타일 지정 */
+    width: 100%; /* menu의 너비를 지정 */
+    height: 35px; /* 메뉴의 높이를 설정 */
+}
+#menu ul li{ /* 메뉴의 안에 있는 ul 태그 안에 있는 li 태그의 스타일링 */
+    background-color: #000; /* 배경을 진한 검정으로 지정 */
+    list-style: none; /* 리스틔 목록 표현하는 점 삭제 */
+    float: left; /* li태그가 왼쪽에 흐르게 설정 */
+    line-height: 30px; /* 글자를 가운데 설정 줄높이 30 */
+    text-align: center; /* 글자 가운데 지정 */
+}
+#menu .link{
+    width: 0;
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    font-weight: bold;
+}
+
+#menu .link:hover {
+    background-color: #666;
+    color: #ff42e7;
+}
+h1 {
+    text-align: center;
+}
