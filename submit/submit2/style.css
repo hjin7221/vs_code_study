@@ -8,28 +8,28 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: var(--bodybackground-color);
+    width: 100%;
+    height: 100%;
+    /* background-color: var(--bodybackground-color); */
     font-family: 'Cafe24Oneprettynight';
     position: relative;
-    height: 100%;
 }
 
-/* body::before{
+body::before{
+    width: 100%;
+    height: 100%;
     content: "";
-    background: url('image/back.jpg') no-repeat; 
+    background: url('image/back3.png'); 
     background-size: cover;
-    opacity: 0.5;
     position: absolute;
-    margin: 0;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
-    
     z-index: -1;
-} */
+    opacity: 0.5;
+}
 
 h1 {
+    margin: 0;
     text-align: center;
     color: darkblue;
     position: relative;
@@ -101,7 +101,7 @@ a {
 
 #container {
     width: 900px;
-    height: 600px;
+    height: 700px;
     overflow: hidden;
     margin: 0 auto;
   }
@@ -109,7 +109,7 @@ a {
   .img {
     display: none;
     width: 900px;
-    height: 600px;
+    height: 700px;
   }
   
   .img.on {
