@@ -1,20 +1,25 @@
-function adjustLinkWidth() {
-  const links = document.querySelectorAll('nav a');
-  links.forEach(link => {
-    link.style.width = 'auto';
-  });
+const toggleBtn = document.querySelector('.navbar__toggleBtn');
+const menu = document.querySelector('.navbar__menu');
+const icons = document.querySelector('navbar__icons');
 
-  const linkContainerWidth = links[0].parentElement.offsetWidth;
-  const linkCount = links.length;
-  const totalLinkWidth = Array.from(links).reduce((acc, link) => acc + link.offsetWidth, 0);
-  const linkWidth = totalLinkWidth / linkCount;
+toggleBtn.addEventListener('click',() => {
+    menu.classList.toggle('active');
+    icons.classList.toggle('active');
+})
 
-  if (totalLinkWidth > linkContainerWidth) {
-    links.forEach(link => {
-      link.style.width = `${linkWidth}px`;
-    });
+const images = document.querySelectorAll('.img');
+let current = 0;
+
+function showSlide() {
+  for(let i=0; i<images.length; i++) {
+    images[i].classList.remove('on');
   }
+  current++;
+  if(current > images.length) {
+    current = 1;
+  }
+  images[current - 1].classList.add('on');
+  setTimeout(showSlide, 2000);
 }
 
-window.addEventListener('resize', adjustLinkWidth);
-window.addEventListener('load', adjustLinkWidth);
+showSlide();
